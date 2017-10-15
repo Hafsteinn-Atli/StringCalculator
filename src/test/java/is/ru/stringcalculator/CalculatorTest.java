@@ -1,7 +1,10 @@
 package is.ru.stringcalculator;
 
 import static org.junit.Assert.assertEquals;
+import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class CalculatorTest{
 
@@ -30,15 +33,23 @@ public class CalculatorTest{
 		assertEquals(6, Calculator.add("1\n2,3"));
 	}
 
+
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+
 	@Test
-	public void noNegatives1(){
-		assertEquals(6, Calculator.add("-1\n2,3"));
+	public void noNegatives1() throws IllegalArgumentException{
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Negatives not allowed: -1");
+    	Calculator.add("-1\n-2,3");
 	}
 
-	/*@Test
-	public void noNegatives2(){
-		assertEquals(6, Calculator.add("-1\n2,-3"));
-	}*/
+	@Test
+	public void noNegatives2() throws IllegalArgumentException{
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Negatives not allowed: -2, -3");
+    	Calculator.add("1\n-2,-3");
+	}
 
 
 }
