@@ -8,6 +8,9 @@ public class Calculator{
 		}
 		else{
 			if(text.contains(",")){
+				if(text.contains("\n")){
+					text = text.replaceAll("\n", ",");
+				}
 				String numbers[] = text.split(",");
 				return sum(numbers);	
 			}
