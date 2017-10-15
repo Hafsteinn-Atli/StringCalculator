@@ -51,5 +51,8 @@ public class CalculatorTest{
     	Calculator.add("1\n-2,-3");
 	}
 
-
+	@Test
+	public void ignoreMore1000(){
+		assertEquals(6, Calculator.add("1\n2\n3\n1001"));
+	}
 }

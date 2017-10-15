@@ -7,7 +7,7 @@ public class Calculator{
 			return 0;
 		}
 		else{
-			if(text.contains(",")){
+			if(text.contains(",") || text.contains("\n")){
 				if(text.contains("\n")){
 					text = text.replaceAll("\n", ",");
 				}
@@ -36,7 +36,9 @@ public class Calculator{
 	private static int sum(String [] numbers){
 		int result = 0;
 		for(String number : numbers){
+			if(toInt(number) <= 1000){
 			result += toInt(number);
+			}
 		}
 		return result;
 	}
