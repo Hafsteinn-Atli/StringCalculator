@@ -7,9 +7,14 @@ public class Calculator{
 			return 0;
 		}
 		else{
-			if(text.contains(",") || text.contains("\n")){
+			if(text.contains(",") || text.contains("\n") || text.contains("//")){
 				if(text.contains("\n")){
 					text = text.replaceAll("\n", ",");
+					if(text.contains("//")){
+						String delim = text.substring(2,3);
+						text = text.replaceAll(delim, ",");
+						text = text.substring(4);
+					}
 				}
 				String[] numbers = text.split(",");
 				String[] negatives = checkNeg(numbers);
