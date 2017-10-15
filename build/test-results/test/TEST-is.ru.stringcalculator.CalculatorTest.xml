@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="is.ru.stringcalculator.CalculatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-10-15T01:37:58" hostname="LAPTOP-1D15A0MD" time="0.002">
-  <properties/>
-  <testcase name="emptyString" classname="is.ru.stringcalculator.CalculatorTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
