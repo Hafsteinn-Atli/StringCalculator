@@ -11,7 +11,17 @@ public class Calculator{
 				if(text.contains("\n")){
 					text = text.replaceAll("\n", ",");
 				}
-				String numbers[] = text.split(",");
+				String[] numbers = text.split(",");
+				String[] negatives = checkNeg(numbers);
+				if(negatives.length != 0){
+					String message;
+					String negs = negatives[0];
+					for(int i = 1; i < negatives.length; i++){
+						negs = negs + ", " + negatives[i];
+					}
+					message = "Negatives not allowed: " + negs;
+					throw new IllegalArgumentException(message);
+				}
 				return sum(numbers);	
 			}
 			return Integer.parseInt(text);
@@ -29,5 +39,23 @@ public class Calculator{
 			result += toInt(number);
 		}
 		return result;
+	}
+
+	private static String[] checkNeg(String [] numbers){
+		int countNeg = 0;
+		for(String number : numbers){
+			if(toInt(number) < 0){
+				countNeg++;
+			}
+		}
+		String[] negatives = new String[countNeg];
+		countNeg = 0;
+		for(String number : numbers){
+			if(toInt(number) < 0){
+				negatives[countNeg] = number;
+				countNeg++;
+			}
+		}
+		return negatives;
 	}
 }

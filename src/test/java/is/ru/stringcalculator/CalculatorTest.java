@@ -29,4 +29,16 @@ public class CalculatorTest{
 	public void allowNewLine(){
 		assertEquals(6, Calculator.add("1\n2,3"));
 	}
+
+	@Test
+	public void noNegatives1(){
+		assertEquals(6, Calculator.add("-1\n2,3"));
+	}
+
+	/*@Test
+	public void noNegatives2(){
+		assertEquals(6, Calculator.add("-1\n2,-3"));
+	}*/
+
+
 }
