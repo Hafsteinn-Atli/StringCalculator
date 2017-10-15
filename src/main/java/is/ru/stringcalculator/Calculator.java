@@ -9,7 +9,11 @@ public class Calculator{
 		else{
 			if(text.contains(",")){
 				String numbers[] = text.split(",");
-				return Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
+				int result = 0;
+				for(String number : numbers){
+					result += Integer.parseInt(number);
+				}
+				return result;				
 			}
 			return Integer.parseInt(text);
 		}
